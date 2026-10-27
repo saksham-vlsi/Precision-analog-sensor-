@@ -1,0 +1,23 @@
+Ref,Qty,Value,Tol / Type,Package,Function,Notes
+U1,1,TLV9064,Quad RRIO op-amp,SOIC-14 on DIP adapter,A1 A2 A3 = INA; A4 = Vref buffer,Any 3.3 V RRIO op-amp works (verify Vos / en)
+U2,1,TLV9062,Dual RRIO op-amp,SOIC-8 on DIP adapter,A5 = Sallen-Key; 2nd channel unused,Tie unused channel as follower to Vref
+R1a R1b,2,10k,0.1 % metal film,Through-hole,INA stage-1 feedback,Match matters for CMRR
+Rg,1,1.05k,0.1 % metal film,Through-hole,INA gain resistor,G1 = 1 + 2*10k/1.05k = 20.05
+R2p R2n,2,20k,0.1 % metal film,Through-hole,Difference amp input,Matched pair
+R3p R3n,2,100k,0.1 % metal film,Through-hole,Difference amp feedback / reference,Matched pair
+Rd1 Rd2,2,10k,0.1 % metal film,Through-hole,Mid-rail divider (1.65 V),Buffered by A4
+Rfp Rfn,2,1k,1 %,Through-hole,Input protection / RFI filter,
+Rs1 Rs2,2,11.3k,1 % metal film,Through-hole,Sallen-Key resistors,fc ~ 996 Hz
+Radc,1,100,1 %,Through-hole,ADC kick-back isolation,
+C1 (Cs1),2,10n,C0G/NP0 or film 5 %,Through-hole / 0805,Sallen-Key feedback cap (2 x 10 nF in parallel = 20 nF),Do NOT use X7R/Y5V in the filter
+C2 (Cs2),1,10n,C0G/NP0 or film 5 %,Through-hole / 0805,Sallen-Key shunt cap,
+Cdif,1,10n,C0G/NP0 or film,Through-hole / 0805,Input differential RFI cap,Keep Cdif >= 10 x Ccm
+Ccp Ccn,2,1n,C0G/NP0 1-5 %,Through-hole / 0805,Input common-mode RFI caps,Matched
+Cadc,1,10n,C0G/NP0 or X7R,Through-hole / 0805,ADC input charge reservoir,
+Cd1,1,1u,X7R,Through-hole / 0805,Vref divider filter,
+Cref,1,100n,X7R,Through-hole / 0805,Vref decoupling,
+Cb1-Cb2,2,100n,X7R,Through-hole / 0805,Supply bypass at U1 and U2,Place at the supply pins
+Cb3,1,10u,Electrolytic / X7R,Through-hole,Bulk supply bypass,
+MCU,1,STM32F103C8T6 'Blue Pill',Dev board,,12-bit ADC + USART1 readout,PA0 = ADC input; PA9 = TX
+FIX-A,1,See docs/03_build_guide.md,Test fixture,,Pot-adjustable bridge emulator,2 x 1k 0.1 % + 1k + 1k + 20 ohm 10-turn trimmer
+BRD,1,Solderless breadboard / perfboard,,,,Perfboard with a ground plane is better for CMRR
