@@ -1,0 +1,2 @@
+# ADC read-back: applied_uV = DMM-measured bridge voltage, reported_uV = firmware vin_uV column
+applied_uV,reported_uV
