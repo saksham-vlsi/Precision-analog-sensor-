@@ -1,2 +1,0 @@
-# Frequency response (Fixture B). Keep Vin constant (~20 mVpp at the INA input = 2 Vpp at the generator / 100)
-freq_Hz,vin_mVpp,vout_mVpp

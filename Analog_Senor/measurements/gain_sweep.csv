@@ -1,2 +1,0 @@
-# Gain sweep: vin_mV = differential voltage across the bridge output (DMM), vout_V = DMM at ADC node
-vin_mV,vout_V

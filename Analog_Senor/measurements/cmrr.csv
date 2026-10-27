@@ -1,2 +1,0 @@
-# CMRR: both INA inputs tied together, common-mode drive centred on 1.65 V
-freq_Hz,vcm_Vpp,vout_mVpp
